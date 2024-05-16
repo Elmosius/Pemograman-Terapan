@@ -9,9 +9,5 @@ Selamat datang di repositori saya! Di sini, Anda akan menemukan rekap belajar sa
 - 🔀 Pertemuan 4 - Python + MySQL (CRUD)
 - 🔗 Pertemuan 5 - SQLAlchemy
 - 📚 Pertemuan 6 - Unit Testing
-- 🔀 Pertemuan 7 - Belum
-- 🌳 Pertemuan 8 - Belum
-- 🔍 Pertemuan 9 - Belum
-- 🔢 Pertemuan 10 - Belum
-- 🌳 Pertemuan 11 - Belum
-- 🅱️ Pertemuan 12 - Belum
+- 🔥 Pertemuan 7 - REST API
+- ❓Coming Soon
