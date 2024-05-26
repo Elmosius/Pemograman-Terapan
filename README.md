@@ -11,3 +11,9 @@ Selamat datang di repositori saya! Di sini, Anda akan menemukan rekap belajar sa
 - 📚 Pertemuan 6 - Unit Testing
 - 🔥 Pertemuan 7 - REST API
 - ❓Coming Soon
+- ✨Tugas Besar
+  > ### Proyek Tugas Besar
+    Intinya sih diminta untuk membuat REST API yang dapat digunakan untuk manajemen setidaknya dua buah tabel dan juga
+    membuat Web APP yang mengakses REST API tersebut (menggunakan python dari sisi back-endnya).
+
+
