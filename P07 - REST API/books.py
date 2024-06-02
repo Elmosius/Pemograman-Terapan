@@ -1,6 +1,5 @@
 from flask import Flask, jsonify, request
 
-
 app = Flask(__name__)
 class Book:
     def __init__(self, name, price):
