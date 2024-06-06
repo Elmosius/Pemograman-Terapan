@@ -10,5 +10,3 @@ app.register_blueprint(anime_bp, url_prefix='/')
 app.register_blueprint(genre_bp, url_prefix='/')
 app.register_blueprint(studio_bp, url_prefix='/')
 
-if __name__ == '__main__':
-    app.run(debug=True)

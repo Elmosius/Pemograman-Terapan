@@ -1,0 +1,71 @@
+{% extends "base.html" %} {% block card %}
+<h2 class="fw-bold fs-3 text-white ps-3">Create New Anime</h2>
+<div class="pe-3">
+  <a href="/animes" class="btn btn-warning gap-2">
+    <i class="bi bi-arrow-left"></i>
+    Back
+  </a>
+</div>
+
+{% endblock%}{% block content %}
+
+<div class="card bg-light-subtle shadow border-0 rouded-3">
+  <form method="post" action="/dashboard/kurikulum" class="p-4">
+    <div class="mb-3 input-group">
+      <div class="col-6 ps-2">
+        <label for="Title" class="form-label fw-medium mb03">Title</label>
+        <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" value="" placeholder="One Piece" autofocus required />
+        <div class="invalid-feedback"></div>
+      </div>
+      <div class="col-6 ps-2 mb-3">
+        <label for="Author" class="form-label fw-medium">Author</label>
+        <input type="text" class="form-control @error('author') is-invalid @enderror" id="author" name="author" value="" placeholder="Elmo" autofocus required />
+        <div class="invalid-feedback"></div>
+      </div>
+      <div class="col-6 ps-2">
+        <label for="Season" class="form-label fw-medium">Season</label>
+        <input type="number" class="form-control @error('season') is-invalid @enderror" id="season" name="season" value="" placeholder="1" min="1" autofocus required />
+        <div class="invalid-feedback"></div>
+      </div>
+      <div class="col-6 ps-2 mb-3">
+        <label for="Episodes" class="form-label fw-medium">Episodes</label>
+        <input type="number" class="form-control @error('episodes') is-invalid @enderror" id="episodes" name="episodes" value="" placeholder="2004" min="1" autofocus required />
+        <div class="invalid-feedback"></div>
+      </div>
+      <div class="col-6 ps-2">
+        <label for="Rating" class="form-label fw-medium">Rating</label>
+        <input type="text" class="form-control @error('rating') is-invalid @enderror" id="rating" name="rating" value="" placeholder="10/10" autofocus required />
+        <div class="invalid-feedback"></div>
+      </div>
+      <div class="col-6 ps-2 mb-3">
+        <label for="Status" class="form-label fw-semibold">Status</label>
+        <select class="form-select" name="status" required>
+          <option value="" selected>Completed</option>
+          <option value="">On Progress</option>
+        </select>
+      </div>
+      <div class="col-6 ps-2">
+        <label for="studio" class="form-label fw-semibold">Studio</label>
+        <select class="form-select" name="status" required>
+          <option value="" selected>Studio Y</option>
+          <option value="">Studio X</option>
+        </select>
+      </div>
+      <div class="col-6 ps-2 mb-3">
+        <label for="Image" class="form-label fw-medium">Image</label>
+        <input type="file" class="form-control @error('image') is-invalid @enderror" id="image" name="image" value="" placeholder="" autofocus />
+        <div class="invalid-feedback"></div>
+      </div>
+      <div class="col-6 ps-2">
+        <label for="Image" class="form-label fw-medium">Category</label>
+        <select class="form-select" multiple aria-label="studio">
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-success ms-2">Create Category</button>
+  </form>
+</div>
+{% endblock %} {% block js%} {% endblock %}
