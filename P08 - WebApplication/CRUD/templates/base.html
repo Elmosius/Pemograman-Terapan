@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<head>
+<html>
+  <head>
     <title>Flask CRUD App</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
-<body>
-    <div class="container">
-        {% block content %}{% endblock %}
-    </div>
-</body>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  </head>
+  <body>
+    <div class="container">{% block content %}{% endblock %}</div>
+  </body>
 </html>
