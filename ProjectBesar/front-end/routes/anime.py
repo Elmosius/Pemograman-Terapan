@@ -51,7 +51,13 @@ def editAnime(id):
             {"value": "on_progress", "label": "On Progress"}
         ]
         
-        return render_template('animes/edit.html', anime=anime, statuses=statuses)
+        studio_response = requests.get('http://127.0.0.1:5000/studios')
+        studios = studio_response.json()
+
+        genres_response = requests.get('http://127.0.0.1:5000/genres')
+        genres = genres_response.json()
+        
+        return render_template('animes/edit.html', statuses=statuses, studios=studios, genres=genres, anime=anime)
     else:
         data = request.form.to_dict(flat=False)
         response = requests.put(f'http://127.0.0.1:5000/anime/{id}', json=data)

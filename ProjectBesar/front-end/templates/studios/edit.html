@@ -10,16 +10,16 @@
 {% endblock%}{% block content %}
 
 <div class="card bg-light-subtle shadow border-0 rouded-3">
-  <form method="post" action="/dashboard/kurikulum" class="p-4">
+  <form method="post" action="/studio-edit/{{ studio.id }}" class="p-4">
     <div class="mb-3 input-group">
       <div class="col-6 ps-2">
-        <label for="Tahun Kurikulum" class="form-label fw-medium">Id Studio</label>
-        <input type="text" class="form-control @error('tahun') is-invalid @enderror" id="tahun" name="tahun" value="" placeholder="1" readonly />
+        <label for="id studio" class="form-label fw-medium">Id Studio</label>
+        <input type="text" class="form-control" id="id" name="id" value="" placeholder="1" readonly />
         <div class="invalid-feedback"></div>
       </div>
       <div class="col-6 ps-2">
-        <label for="Tahun Kurikulum" class="form-label fw-medium">Name Studio</label>
-        <input type="text" class="form-control @error('tahun') is-invalid @enderror" id="tahun" name="tahun" value="" placeholder="Studio Example" autofocus />
+        <label for="Name Studio" class="form-label fw-medium">Name Studio</label>
+        <input type="text" class="form-control" id="name" name="name" value="{{ studio.name }}" placeholder="Studio Example" autofocus />
         <div class="invalid-feedback"></div>
       </div>
     </div>

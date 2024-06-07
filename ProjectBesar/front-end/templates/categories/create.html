@@ -10,11 +10,11 @@
 {% endblock%}{% block content %}
 
 <div class="card bg-light-subtle shadow border-0 rouded-3">
-  <form method="post" action="/dashboard/kurikulum" class="p-4">
+  <form method="post" action="/category-create" class="p-4">
     <div class="mb-3 input-group">
       <div class="col-6 ps-2">
-        <label for="Tahun Kurikulum" class="form-label fw-medium">Name Category</label>
-        <input type="text" class="form-control @error('tahun') is-invalid @enderror" id="tahun" name="tahun" value="" placeholder="Romance" autofocus />
+        <label for="Name Category" class="form-label fw-medium">Name Genre</label>
+        <input type="text" class="form-control" id="name" name="name" value="" placeholder="Romance" autofocus required />
         <div class="invalid-feedback"></div>
       </div>
     </div>

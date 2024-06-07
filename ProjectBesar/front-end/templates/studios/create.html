@@ -10,15 +10,15 @@
 {% endblock%}{% block content %}
 
 <div class="card bg-light-subtle shadow border-0 rouded-3">
-  <form method="post" action="/dashboard/kurikulum" class="p-4">
+  <form method="post" action="/studio-create" class="p-4">
     <div class="mb-3 input-group">
       <div class="col-6 ps-2">
-        <label for="Tahun Kurikulum" class="form-label fw-medium">Name Studio</label>
-        <input type="text" class="form-control @error('tahun') is-invalid @enderror" id="tahun" name="tahun" value="" placeholder="Studio Example" autofocus />
+        <label for="Name Studio" class="form-label fw-medium">Name Studio</label>
+        <input type="text" class="form-control" id="name" name="name" value="" placeholder="Studio Example" autofocus required />
         <div class="invalid-feedback"></div>
       </div>
     </div>
     <button type="submit" class="btn btn-success ms-2">Create Studio</button>
   </form>
 </div>
-{% endblock %} {% block js%} {% endblock %}
+{% endblock %}

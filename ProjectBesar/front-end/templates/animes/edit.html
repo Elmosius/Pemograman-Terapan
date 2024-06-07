@@ -8,74 +8,76 @@
 </div>
 {% endblock %} {% block content %}
 <div class="card bg-light-subtle shadow border-0 rouded-3">
-  <form method="post" action="/anime-create" class="p-4">
+  <form method="post" action="/anime-edit/{{ anime.id }}" class="p-4">
     <div class="mb-3 input-group">
       <div class="col-6 ps-2">
         <label for="title" class="form-label fw-medium mb-3">Title</label>
-        <input type="text" class="form-control" id="title" name="title" value="{{ anime.title }}" placeholder="One Piece" autofocus required />
+        <input type="text" class="form-control" id="title" name="title" value="{{ anime.title }}" placeholder="One Piece" autofocus  />
         <div class="invalid-feedback">Please provide a valid title.</div>
       </div>
       <div class="col-6 ps-2 mb-3">
         <label for="author" class="form-label fw-medium">Author</label>
-        <input type="text" class="form-control mt-2" id="author" name="author" value="{{ anime.author }}" placeholder="Elmo" autofocus required />
+        <input type="text" class="form-control mt-2" id="author" name="author" value="{{ anime.author }}" placeholder="Elmo" autofocus  />
         <div class="invalid-feedback">Please provide a valid author.</div>
       </div>
       <div class="col-6 ps-2">
         <label for="season" class="form-label fw-medium">Season</label>
-        <input type="number" class="form-control" id="season" name="season" value="{{ anime.season }}" placeholder="1" min="1" autofocus required />
+        <input type="number" class="form-control" id="season" name="season" value="{{ anime.season }}" placeholder="1" min="1" autofocus  />
         <div class="invalid-feedback">Please provide a valid season.</div>
       </div>
       <div class="col-6 ps-2 mb-3">
         <label for="episodes" class="form-label fw-medium">Episodes</label>
-        <input type="number" class="form-control" id="episodes" name="episodes" value="{{ anime.episodes }}" placeholder="2004" min="1" autofocus required />
+        <input type="number" class="form-control" id="episodes" name="episodes" value="{{ anime.episodes }}" placeholder="2004" min="1" autofocus  />
         <div class="invalid-feedback">Please provide a valid number of episodes.</div>
       </div>
       <div class="col-6 ps-2">
         <label for="rating" class="form-label fw-medium">Rating</label>
-        <input type="text" class="form-control" id="rating" name="rating" value="{{ anime.rating }}" placeholder="10/10" autofocus required />
+        <input type="text" class="form-control" id="rating" name="rating" value="{{ anime.rating }}" placeholder="10/10" autofocus  />
         <div class="invalid-feedback">Please provide a valid rating.</div>
       </div>
       <div class="col-6 ps-2 mb-3">
         <label for="status" class="form-label fw-semibold">Status</label>
-        <select class="form-select" name="status" required>
-          <option value=" {% if not anime.status %}" selected {% endif %}>Select status</option>
-          {% for status in statuses %}
-          <option value="{{ status.value }}">{{ status.label }}</option>
-          {% endfor %}
+        <select class="form-select" name="status" >
+            <option value="" selected disabled>Select status</option>
+            {% for status in statuses %}
+                <option value="{{ status.value }}" {% if status.value == anime.status %} selected {% endif %}>{{ status.label }}</option>
+            {% endfor %}
         </select>
         <div class="invalid-feedback">Please select a status.</div>
-      </div>
-      <div class="col-6 ps-2">
-        <label for="studio" class="form-label fw-semibold">Studio</label>
-        <select class="form-select" name="studio_id" required>
-          <option value="" selected disabled>Select studio</option>
-          {% for studio in studios %}
-          <option value="{{ studio.id }}">{{ studio.name }}</option>
-          {% endfor %}
-        </select>
-        <div class="invalid-feedback">Please select a studio.</div>
-      </div>
+    </div>
+    
+    <!-- prettier-ignore -->
+    <div class="col-6 ps-2">
+      <label for="studio" class="form-label fw-semibold">Studio</label>
+      <select class="form-select" name="studio_id" >
+        <option value="" disabled>Select studio</option>
+        {% for studio in studios %}
+          <option value="{{ studio.id }}" {% if studio.id == anime.studio_id %} selected {% endif %}>{{ studio.name }}</option>
+        {% endfor %}
+      </select>
+      <div class="invalid-feedback">Please select a studio.</div>
+    </div>
       <div class="col-6 ps-2 mb-3">
         <label for="image" class="form-label fw-medium">Images (url)</label>
-        <input type="text" class="form-control" id="image" name="image" value="" placeholder="https://th.bing.com/xxxx" autofocus required />
+        <input type="text" class="form-control" id="image" name="image" value="{{ anime.image }}" placeholder="https://th.bing.com/xxxx" autofocus  />
         <div class="invalid-feedback">Please provide a valid image.</div>
       </div>
       <div class="col-6 ps-2">
         <label for="genres" class="form-label fw-medium">Genres</label>
-        <select class="form-select" multiple name="genres" aria-label="Genres" required>
-          {% for genre in genres %}
-          <option value="{{ genre.name }}">{{ genre.name }}</option>
-          {% endfor %}
+        <select class="form-select" multiple name="genres" aria-label="Genres" >
+            {% for genre in genres %}
+                <option value="{{ genre.name }}" {% if genre.name in anime.genres %} selected {% endif %}>{{ genre.name }}</option>
+            {% endfor %}
         </select>
         <div class="invalid-feedback">Please select at least one genre.</div>
-      </div>
+    </div>
       <div class="col-6 ps-2">
         <label for="synopsis" class="form-label fw-medium">Synopsis</label>
-        <textarea class="form-control" id="synopsis" name="synopsis" placeholder="synopsis..." autofocus required></textarea>
+        <textarea class="form-control" id="synopsis" name="synopsis" placeholder="synopsis..." autofocus >{{ anime.synopsis }}</textarea>
         <div class="invalid-feedback">Please provide a valid synopsis.</div>
       </div>
     </div>
-    <button type="submit" class="btn btn-success ms-2">Create Anime</button>
+    <button type="submit" class="btn btn-success ms-2">Edit Anime</button>
   </form>
 </div>
 {% endblock %}
