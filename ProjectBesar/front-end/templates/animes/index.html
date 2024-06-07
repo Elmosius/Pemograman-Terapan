@@ -6,8 +6,7 @@
     <span class="ps-2">Add Anime</span>
   </a>
 </div>
-
-{% endblock%}{% block content %}
+{% endblock %} {% block content %}
 <div class="card bg-light-subtle shadow border-0 rounded-3">
   <div class="border-bottom ps-3 pt-3">
     <p class="fw-semibold">All Anime</p>
@@ -32,55 +31,68 @@
         </tr>
       </thead>
       <tbody>
+        {% for anime in animes %}
         <tr>
-          <td>1</td>
-          <td>Death Note</td>
-          <td>Tsugumi Ohba</td>
+          <td>{{ anime.id }}</td>
+          <td>{{ anime.title }}</td>
+          <td>{{ anime.author }}</td>
           <td>
-            <img src="https://cdn.myanimelist.net/images/anime/9/9453.jpg" width="50px" />
+            <img src="{{ anime.image }}" width="50px" />
           </td>
-          <td>37</td>
-          <td>Seorang pelajar SMA, Light Yagami, menemukan sebuah buku catatan ajaib yang bisa membunuh orang jika namanya dituliskan di dalamnya.</td>
-          <td>1</td>
-          <td>Completed</td>
-          <td>8.63 / 10</td>
-          <td>Mystery, Thriller</td>
-          <td>Studio Marped</td>
+          <td>{{ anime.episodes }}</td>
+          <td>{{ anime.synopsis }}</td>
+          <td>{{ anime.season }}</td>
+          <td>{{ anime.status }}</td>
+          <td>{{ anime.rating }} / 10</td>
+          <td>{{ anime.genres | join(', ') }}</td>
+          <td>{{ anime.studio }}</td>
           <td>
-            <a href="/anime-edit" class="btn btn-warning pt-0 pb-1 px-2">
+            <a href="/anime-edit/{{ anime.id }}" class="btn btn-warning pt-0 pb-1 px-2">
               <i class="bi bi-pencil-square"></i>
             </a>
           </td>
           <td>
-            <button class="btn btn-danger pt-0 pb-1 px-2" data-bs-toggle="modal" data-bs-target="#deleteModal" data-id="">
+            <button class="btn btn-danger pt-0 pb-1 px-2" data-bs-toggle="modal" data-bs-target="#deleteModal" data-id="{{ anime.id }}">
               <i class="bi bi-trash3-fill"></i>
             </button>
           </td>
         </tr>
+        {% endfor %}
       </tbody>
-      <!-- Modal -->
-      <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h1 class="modal-title fs-5" id="exampleModalLabel">Delete Category</h1>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <p class="p-0 pb-1 m-0">Apakah anda akan menghapus data ini?</p>
-              <p class="fst-italic modal-keterangan">Data yang dihapus tidak bisa dikembalikan</p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-              <form method="post" action="" class="d-inline" id="deleteForm">
-                <button type="submit" class="btn btn-danger">Delete</button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- End Modal -->
     </table>
   </div>
 </div>
-{% endblock %} {% block js%} {% endblock %}
+
+<!-- Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Delete Anime</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p class="p-0 pb-1 m-0">Apakah anda akan menghapus data ini?</p>
+        <p class="fst-italic modal-keterangan">Data yang dihapus tidak bisa dikembalikan</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <form method="post" action="" class="d-inline" id="deleteForm">
+          <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Modal -->
+{% endblock %} {% block js %}
+<script>
+  let deleteModal = document.getElementById("deleteModal");
+  deleteModal.addEventListener("show.bs.modal", (e) => {
+    let button = e.relatedTarget;
+    let id = button.getAttribute("data-id");
+    let form = document.getElementById("deleteForm");
+    form.action = `/anime-delete/${id}`;
+  });
+</script>
+{% endblock %}
