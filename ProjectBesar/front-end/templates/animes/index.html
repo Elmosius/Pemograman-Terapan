@@ -15,7 +15,7 @@
     <table class="table table-striped table-md">
       <thead>
         <tr>
-          <th scope="col">Id</th>
+          <th scope="col">No</th>
           <th scope="col">Title</th>
           <th scope="col">Author</th>
           <th scope="col">Image</th>
@@ -33,7 +33,7 @@
       <tbody>
         {% for anime in animes %}
         <tr>
-          <td>{{ anime.id }}</td>
+          <td>{{ loop.index }}</td>
           <td>{{ anime.title }}</td>
           <td>{{ anime.author }}</td>
           <td>

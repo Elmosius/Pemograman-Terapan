@@ -16,7 +16,7 @@
     <table class="table table-striped table-md">
       <thead>
         <tr>
-          <th scope="col">Id</th>
+          <th scope="col">No</th>
           <th scope="col">Genre</th>
           <th scope="col">Edit</th>
           <th scope="col">Delete</th>
@@ -25,7 +25,7 @@
       <tbody>
         {% for genre in genres %}
         <tr>
-          <td>{{ genre.id }}</td>
+          <td>{{ loop.index }}</td>
           <td>{{ genre.name }}</td>
           <td>
             <a href="/category-edit/{{ genre.id }}" class="btn btn-warning pt-0 pb-1 px-2">

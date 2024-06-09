@@ -1,9 +1,9 @@
 from flask import Blueprint, render_template
 import requests
 
-dashboard_bp = Blueprint('dashboard', __name__)
+website_bp = Blueprint('website', __name__)
 
-@dashboard_bp.route('/dashboard')
+@website_bp.route('/')
 def index():
     studio_response = requests.get('http://127.0.0.1:5000/studios')
     studios = studio_response.json()
@@ -12,6 +12,19 @@ def index():
     genres = genres_response.json()
     
     anime_response = requests.get('http://127.0.0.1:5000/anime')
+    animes = anime_response.json()
+    
+    return render_template('website/index.html', studios=studios,genres=genres,animes=animes)
+
+
+
+@website_bp.route('/anime-detail/<int:id>')
+def anime_detail(id):
+
+    anime_response = requests.get(f'http://127.0.0.1:5000/anime/{id}')
     anime = anime_response.json()
     
-    return render_template('dashboard/index.html', studios=studios,genres=genres,anime=anime)
+    return render_template('website/detail.html',anime=anime)
+
+
+

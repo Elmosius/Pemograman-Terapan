@@ -40,7 +40,7 @@
         <select class="form-select" name="status" required>
           <option value="" selected disabled>Select status</option>
           {% for status in statuses %}
-          <option value="{{ status.value }}">{{ status.label }}</option>
+          <option value="{{ status.label }}">{{ status.label }}</option>
           {% endfor %}
         </select>
         <div class="invalid-feedback">Please select a status.</div>

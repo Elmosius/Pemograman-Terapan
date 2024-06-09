@@ -35,7 +35,7 @@ def createAnime():
 
         statuses = [
             {"value": "completed", "label": "Completed"},
-            {"value": "on_progress", "label": "On Progress"}
+            {"value": "on_progress", "label": "On Progres"}
         ]
 
         return render_template('animes/create.html', statuses=statuses, studios=studios, genres=genres)
@@ -48,7 +48,7 @@ def editAnime(id):
         
         statuses = [
             {"value": "completed", "label": "Completed"},
-            {"value": "on_progress", "label": "On Progress"}
+            {"value": "on_progress", "label": "On Progres"}
         ]
         
         studio_response = requests.get('http://127.0.0.1:5000/studios')

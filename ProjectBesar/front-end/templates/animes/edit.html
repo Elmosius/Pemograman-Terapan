@@ -40,7 +40,7 @@
         <select class="form-select" name="status" >
             <option value="" selected disabled>Select status</option>
             {% for status in statuses %}
-                <option value="{{ status.value }}" {% if status.value == anime.status %} selected {% endif %}>{{ status.label }}</option>
+                <option value="{{ status.label }}" {% if status.label == anime.status %} selected {% endif %}>{{ status.label }}</option>
             {% endfor %}
         </select>
         <div class="invalid-feedback">Please select a status.</div>
@@ -52,7 +52,7 @@
       <select class="form-select" name="studio_id" >
         <option value="" disabled>Select studio</option>
         {% for studio in studios %}
-          <option value="{{ studio.id }}" {% if studio.id == anime.studio_id %} selected {% endif %}>{{ studio.name }}</option>
+          <option value="{{ studio.id }}" {% if studio.name == anime.studio %} selected {% endif %}>{{ studio.name }}</option>
         {% endfor %}
       </select>
       <div class="invalid-feedback">Please select a studio.</div>
