@@ -100,15 +100,15 @@
   <body>
     <div class="container py-3">
       <header>
-        <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
+        <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom sticky-top bg-white nav-bar">
           <a href="/" class="d-flex align-items-center link-body-emphasis text-decoration-none">
             <span class="fs-4 fw-bold text-success">Enime.com</span>
           </a>
 
           <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
-            <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="#">Categories</a>
+            <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="/enime-categories">Categories</a>
             <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="#">Top Anime</a>
-            <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="#">Reviews</a>
+
             <form class="d-flex" role="search">
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
               <button class="btn btn-outline-success" type="submit">Search</button>
@@ -132,21 +132,26 @@
             <small class="d-block mb-3 text-body-secondary">&copy; Enime 2024</small>
           </div>
           <div class="col-6 col-md">
-            <h5>Anime</h5>
+            <h5>Top Anime</h5>
             <ul class="list-unstyled text-small">
               <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">One Piece</a></li>
+              <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Naruto</a></li>
+              <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Attack On Titan</a></li>
+              <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Dr. Stone</a></li>
             </ul>
           </div>
           <div class="col-6 col-md">
-            <h5>Categories</h5>
+            <h5>Top Categories</h5>
             <ul class="list-unstyled text-small">
               <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Action</a></li>
+              <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Fantasy</a></li>
+              <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Adventure</a></li>
             </ul>
           </div>
           <div class="col-6 col-md">
             <h5>Reviews</h5>
             <ul class="list-unstyled text-small">
-              <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Best </a></li>
+              <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Best</a></li>
             </ul>
           </div>
         </div>
@@ -165,6 +170,9 @@
 
     <!-- typed-->
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+    <!-- aos-->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 
     {% block js%} {% endblock %}
   </body>

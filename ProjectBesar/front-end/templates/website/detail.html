@@ -1,66 +1,39 @@
-{% extends "starter.html" %} {% block header %}
-<div class="owl-carousel owl-theme">
-  <div class="item">
-    <a href="">
-      <img src="https://images3.alphacoders.com/134/1346859.png" class="img-hero rounded" width="100%" alt="Anime 1" />
-      <div class="overlay"></div>
-    </a>
-  </div>
-  <div class="item">
-    <a href="">
-      <img src="https://images.alphacoders.com/135/1357984.png" class="img-hero rounded" width="100%" alt="Anime 2" />
-      <div class="overlay"></div>
-    </a>
-  </div>
-  <div class="item">
-    <a href="">
-      <img src="https://images3.alphacoders.com/131/1319747.jpeg" class="img-hero rounded" width="100%" alt="Anime 3" />
-      <div class="overlay"></div>
-    </a>
-  </div>
-</div>
-{% endblock %} {% block content %}
-
+{% extends "starter.html" %} {% block content %}
 <div class="section-intro">
-  <div class="row-md">
-    <div class="col-md">
-      <h2 class="fw-bold fs-4"><span class="typed-text"></span></h2>
+  <div class="row">
+    <div class="col-md-6">
+      <img src="{{ anime.image }}" class="img-fluid rounded shadow-sm" />
+      <button class="btn btn-dark rounded mt-2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
+          <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393" />
+        </svg>
+        Watch Now (Coming soon)!
+      </button>
     </div>
-    <div class="col-md mt-3">
-      <h5 class="fw-light">Here, you can find the best and most recommended anime sorted by categories. Dive into the fascinating world of anime and explore the endless possibilities. Enjoy your journey!</h5>
-    </div>
-  </div>
-
-  <div class="section-recommended mt-5">
-    <h3 class="fs-4 fw-bold py-5">Recommended <i class="bi bi-balloon-heart"></i></h3>
-    <div class="row">
-      {% for anime in animes %}
-      <div class="col-md py-2">
-        <a href=""><img src="{{ anime.image }}" class="img-top rounded" width="10" alt="Anime 2" /></a>
-        <h7 class="fw-light mt-2"><b>{{ anime.title}} </b> {{anime.rating}}</h7>
+    <div class="col-md-6 mt-3 d-flex flex-column align-items-start">
+      <h2 class="text">
+        <span class="typed-text"></span>
+      </h2>
+      <div class="genres mt-2">
+        {% for genre in anime.genres %}
+        <span class="badge bg-primary me-1">{{ genre }}</span>
+        {% endfor %}
+        <span class="badge bg-success me-1"><i class="bi bi-chat-square-heart"></i> &nbsp;{{ anime.rating }} / 10</span>
       </div>
-      {% endfor %}
+      <h5 class="mt-3 fw-medium text-decs">Author: {{ anime.author }}</h5>
+      <h5 class="fw-medium text-decs">Episodes: {{ anime.episodes }}</h5>
+      <h5 class="fw-medium text-decs">Status: {{ anime.status }}</h5>
+      <h5 class="fw-light text-decs">{{ anime.synopsis }}</h5>
     </div>
   </div>
 </div>
-
 {% endblock %} {% block js %}
-
 <script>
   $(document).ready(function () {
-    var typed = new Typed(".typed-text", {
-      strings: ["Welcome to Enime, Your Gateway to the Anime Universe!"],
-      typeSpeed: 50,
+    let typed = new Typed(".typed-text", {
+      strings: ["{{ anime.title }}"],
+      typeSpeed: 100,
       loop: true,
-    });
-
-    $(".owl-carousel").owlCarousel({
-      loop: true,
-      margin: 10,
-      nav: false,
-      autoplay: true,
-      autoplayTimeout: 5000,
-      items: 1,
     });
   });
 </script>

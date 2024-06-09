@@ -1,19 +1,19 @@
 {% extends "starter.html" %} {% block header %}
 <div class="owl-carousel owl-theme">
   <div class="item">
-    <a href="">
+    <a href="/anime-detail/25">
       <img src="https://images3.alphacoders.com/134/1346859.png" class="img-hero rounded" width="100%" alt="Anime 1" />
       <div class="overlay"></div>
     </a>
   </div>
   <div class="item">
-    <a href="">
+    <a href="/anime-detail/26">
       <img src="https://images.alphacoders.com/135/1357984.png" class="img-hero rounded" width="100%" alt="Anime 2" />
       <div class="overlay"></div>
     </a>
   </div>
   <div class="item">
-    <a href="">
+    <a href="/anime-detail/28">
       <img src="https://images3.alphacoders.com/131/1319747.jpeg" class="img-hero rounded" width="100%" alt="Anime 3" />
       <div class="overlay"></div>
     </a>
@@ -36,7 +36,7 @@
     <div class="row">
       {% for anime in animes %}
       <div class="col-md py-2">
-        <a href=""><img src="{{ anime.image }}" class="img-top rounded" width="10" alt="Anime 2" /></a>
+        <a href="/anime-detail/{{ anime.id }}"><img src="{{ anime.image }}" class="img-top rounded" width="10" alt="Anime 2" /></a>
         <h7 class="fw-light mt-2"><b>{{ anime.title}} </b> {{anime.rating}}</h7>
       </div>
       {% endfor %}

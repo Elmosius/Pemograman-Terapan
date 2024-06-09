@@ -1,3 +1,8 @@
+.nav-bar {
+  background-color: white;
+  z-index: 20;
+}
+
 .container {
   max-width: 960px;
 }
@@ -50,4 +55,9 @@
 .img-top:hover {
   opacity: 0.8;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.text-decs {
+  font-size: 1rem;
+  text-align: justify;
 }
