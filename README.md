@@ -16,8 +16,12 @@ Selamat datang di repositori saya! Di sini, Anda akan menemukan rekap belajar sa
     Intinya sih diminta untuk membuat REST API yang dapat digunakan untuk manajemen setidaknya dua buah tabel dan juga
     membuat Web APP yang mengakses REST API tersebut (menggunakan python dari sisi back-endnya).
 
-    
-
-    
-
+   **Membuat website anime sederhana**
+ 
+    Teknologi yang dipakai:
+    - Flask
+    - MySQl
+    - Boostrap
+    - Jinja2
+ 
 
