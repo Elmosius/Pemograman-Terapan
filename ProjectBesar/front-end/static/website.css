@@ -47,7 +47,7 @@
 }
 
 .img-top {
-  min-width: 10rem;
+  min-width: 12rem;
   height: 30vh;
   transition: opacity 0.3s ease;
 }
@@ -60,4 +60,10 @@
 .text-decs {
   font-size: 1rem;
   text-align: justify;
+}
+
+.card-img {
+  min-width: 10rem;
+  height: 35vh;
+  transition: opacity 0.3s ease;
 }

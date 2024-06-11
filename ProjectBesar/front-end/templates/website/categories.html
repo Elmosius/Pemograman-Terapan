@@ -6,7 +6,7 @@
 {% endblock %} {% block content %}
 <div class="container">
   <div class="row">
-    {% for genre in genres %}
+    {% for genre in global_genres %}
     <div class="col-md-4 mb-4">
       <a href="/enime-categories/{{ genre.id }}" class="text-decoration-none">
         <h6 class="button btn-success px-3 py-3 text-success">{{ genre.name }}</h6>

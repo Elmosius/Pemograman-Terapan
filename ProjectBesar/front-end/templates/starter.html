@@ -107,7 +107,7 @@
 
           <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
             <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="/enime-categories">Categories</a>
-            <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="#">Top Anime</a>
+            <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="/enime-top">Top Anime</a>
 
             <form class="d-flex" role="search">
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
@@ -132,26 +132,25 @@
             <small class="d-block mb-3 text-body-secondary">&copy; Enime 2024</small>
           </div>
           <div class="col-6 col-md">
-            <h5>Top Anime</h5>
+            <h5>All Anime</h5>
             <ul class="list-unstyled text-small">
-              <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">One Piece</a></li>
-              <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Naruto</a></li>
-              <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Attack On Titan</a></li>
-              <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Dr. Stone</a></li>
+              {% for anime in global_animes %}
+              <li class="mb-1"><a class="link-secondary text-decoration-none" href="/anime-detail/{{ anime.id }}">{{ anime.title }}</a></li>
+              {% endfor %}
             </ul>
           </div>
           <div class="col-6 col-md">
-            <h5>Top Categories</h5>
+            <h5>All Categories</h5>
             <ul class="list-unstyled text-small">
-              <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Action</a></li>
-              <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Fantasy</a></li>
-              <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Adventure</a></li>
+              {% for genre in global_genres %}
+              <li class="mb-1"><a class="link-secondary text-decoration-none" href="/enime-categories/{{ genre.id }}">{{ genre.name}}</a></li>
+              {% endfor %}
             </ul>
           </div>
           <div class="col-6 col-md">
             <h5>Reviews</h5>
             <ul class="list-unstyled text-small">
-              <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Best</a></li>
+              <li class="mb-1"><a class="link-secondary text-decoration-none" href="/enime-top">Best</a></li>
             </ul>
           </div>
         </div>
